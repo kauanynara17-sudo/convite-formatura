@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Minha formatura em Odontologia</title>
+
+<style>
+
+* {
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+body {
+
+  font-family: Georgia, serif;
+
+  background: #faf7f5;
+
+  color: #542033;
+
+}
+
+.envelope-screen {
+
+  height: 100vh;
+
+  height: 100dvh;
+
+  width: 100%;
+
+  background: #50152d;
+
+  position: relative;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+}
+
+.envelope {
+
+  position: absolute;
+
+  inset: 0;
+
+  background: #50152d;
+
+}
+
+.front, .flap {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+
+    linear-gradient(rgba(80, 21, 45, .70), rgba(80, 21, 45, .70)),
+
+    url("https://mariaclarasaavedra.vercel.app/assets/envelope-floral-final.jpg")
+
+    center 47% / cover;
+
+}
+
+.front {
+
+  clip-path: polygon(0 30%, 50% 46%, 100% 30%, 100% 100%, 0 100%);
+
+  z-index: 2;
+
+  transition: transform 1s .4s;
+
+}
+
+.flap {
+
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 50% 46%, 0 30%);
+
+  transform-origin: center top;
+
+  z-index: 3;
+
+  transition: transform 1s .3s;
+
+}
+
+.back {
+
+  position: absolute;
+
+  inset: 0;
+
+  background: #50152d;
+
+}
+
+.seal {
+
+  position: absolute;
+
+  z-index: 4;
+
+  width: 36vw;
+
+  height: 36vw;
+
+  max-width: 190px;
+
+  max-height: 190px;
+
+  border-radius: 50%;
+
+  left: 50%;
+
+  top: 47%;
+
+  transform: translate(-50%, -50%);
+
+  background:
+
+    linear-gradient(rgba(80, 21, 45, .65), rgba(80, 21, 45, .65)),
+
+    url("https://mariaclarasaavedra.vercel.app/assets/envelope-floral-final.jpg")
+
+    center / cover;
+
+  border: 2px solid rgba(255,255,255,.35);
+
+  display: grid;
+
+  place-items: center;
+
+  color: #fff3e9;
+
+  font-size: 35px;
+
+  transition: opacity .5s, transform .7s;
+
+}
+
+.hint {
+
+  position: absolute;
+
+  z-index: 5;
+
+  bottom: 5%;
+
+  width: 100%;
+
+  text-align: center;
+
+  color: #fff3e9;
+
+  font-size: 13px;
+
+  letter-spacing: 2px;
+
+}
+
+.envelope-screen.open .flap {
+
+  transform: rotateX(105deg);
+
+}
+
+.envelope-screen.open .front {
+
+  transform: translateY(105%);
+
+}
+
+.envelope-screen.open .seal {
+
+  opacity: 0;
+
+  transform: translate(-50%, -50%) scale(1.1);
+
+}
+
+.envelope-screen.open .hint {
+
+  opacity: 0;
+
+}
+
+.invitation {
+
+  display: none;
+
+  text-align: center;
+
+  padding-bottom: 50px;
+
+}
+
+.invitation.show {
+
+  display: block;
+
+}
+
+.hero {
+
+  min-height: 90vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 30px 20px;
+
+}
+
+.hero img {
+
+  width: 100%;
+
+  max-width: 520px;
+
+  height: auto;
+
+  display: block;
+
+}
+
+.details {
+
+  padding: 45px 25px;
+
+  max-width: 550px;
+
+  margin: auto;
+
+  line-height: 1.8;
+
+}
+
+.details h2 {
+
+  font-size: 28px;
+
+  font-weight: normal;
+
+  margin-bottom: 25px;
+
+}
+
+.details p {
+
+  font-size: 17px;
+
+  margin-bottom: 22px;
+
+}
+
+.event {
+
+  margin: 35px 0;
+
+  line-height: 2;
+
+}
+
+.event strong {
+
+  display: block;
+
+  font-size: 21px;
+
+  font-weight: normal;
+
+}
+
+.whatsapp {
+
+  display: inline-block;
+
+  background: #50152d;
+
+  color: white;
+
+  padding: 15px 28px;
+
+  text-decoration: none;
+
+  border-radius: 3px;
+
+  margin-top: 15px;
+
+  font-size: 15px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="envelope-screen" id="envelope" onclick="openEnvelope()">
+
+  <div class="envelope">
+
+    <div class="back"></div>
+
+    <div class="front"></div>
+
+    <div class="flap"></div>
+
+    <div class="seal">♥</div>
+
+  </div>
+
+  <div class="hint">TOQUE PARA ABRIR</div>
+
+</div>
+
+<main class="invitation" id="invitation">
+
+  <section class="hero">
+
+    <img src="formatura.jpg" alt="Minha formatura em Odontologia">
+
+  </section>
+
+  <section class="details">
+
+    <h2>Um momento especial</h2>
+
+    <p>
+
+      Até aqui, Deus guiou meus passos,
+
+      sustentou meus sonhos e me permitiu
+
+      chegar a este momento.
+
+    </p>
+
+    <p>
+
+      Com o coração cheio de gratidão,
+
+      será uma alegria compartilhar essa
+
+      conquista com você e celebrar o início
+
+      de uma nova etapa da minha vida.
+
+    </p>
+
+    <div class="event">
+
+      <strong>[dia] de fevereiro</strong>
+
+      Dom Inocêncio
+
+      <strong>Às 19h</strong>
+
+    </div>
+
+    <a class="whatsapp"
+
+       href="https://wa.me/5589981102295"
+
+       target="_blank">
+
+       Confirmar presença
+
+    </a>
+
+  </section>
+
+</main>
+
+<script>
+
+function openEnvelope() {
+
+  const envelope = document.getElementById("envelope");
+
+  const invitation = document.getElementById("invitation");
+
+  if (envelope.classList.contains("open")) return;
+
+  envelope.classList.add("open");
+
+  setTimeout(() => {
+
+    envelope.style.display = "none";
+
+    invitation.classList.add("show");
+
+    window.scrollTo(0, 0);
+
+  }, 1600);
+
+}
+
+</script>
+
+</body>
+
+</html>
